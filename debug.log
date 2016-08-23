@@ -1,0 +1,214 @@
+Quick-Cocos2dx-Community C++ support ready.
+
+------------------------------------------------
+
+LOAD LUA FILE: C:/Users/Administrator/Desktop/pokemon/src/main.lua
+
+------------------------------------------------
+
+[LUA-print] ===========================================================
+
+[LUA-print]               LOAD QUICK FRAMEWORK
+
+[LUA-print] ===========================================================
+
+[LUA-print] [INFO] 
+
+[LUA-print] [INFO] # DEBUG                        = 1
+
+[LUA-print] [INFO] #
+
+[LUA-print] [INFO] # device.platform              = windows
+
+[LUA-print] [INFO] # device.model                 = unknown
+
+[LUA-print] [INFO] # device.language              = cn
+
+[LUA-print] [INFO] # device.writablePath          = C:\Users\Administrator\Desktop\pokemon\
+
+[LUA-print] [INFO] # device.directorySeparator    = \
+
+[LUA-print] [INFO] # device.pathSeparator         = ;
+
+[LUA-print] [INFO] #
+
+[LUA-print] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_WIDTH
+
+[LUA-print] [INFO] # CONFIG_SCREEN_WIDTH          = 640.00
+
+[LUA-print] [INFO] # CONFIG_SCREEN_HEIGHT         = 960.00
+
+[LUA-print] [INFO] # display.widthInPixels        = 640.00
+
+[LUA-print] [INFO] # display.heightInPixels       = 960.00
+
+[LUA-print] [INFO] # display.contentScaleFactor   = 1.00
+
+[LUA-print] [INFO] # display.width                = 640.00
+
+[LUA-print] [INFO] # display.height               = 960.00
+
+[LUA-print] [INFO] # display.cx                   = 320.00
+
+[LUA-print] [INFO] # display.cy                   = 480.00
+
+[LUA-print] [INFO] # display.left                 = 0.00
+
+[LUA-print] [INFO] # display.right                = 640.00
+
+[LUA-print] [INFO] # display.top                  = 960.00
+
+[LUA-print] [INFO] # display.bottom               = 0.00
+
+[LUA-print] [INFO] # display.c_left               = -320.00
+
+[LUA-print] [INFO] # display.c_right              = 320.00
+
+[LUA-print] [INFO] # display.c_top                = 480.00
+
+[LUA-print] [INFO] # display.c_bottom             = -480.00
+
+[LUA-print] [INFO] #
+
+cocos2d: padding: 0,0,0,0
+
+cocos2d: padding: 0,0,0,0
+
+cocos2d: padding: 0,0,0,0
+
+[LUA-print] moved	-10	-7.0000610351563
+
+[LUA-print] moved	-21.000030517578	-11
+
+[LUA-print] moved	-36.000030517578	-18.000061035156
+
+[LUA-print] swap:	4	13	3	12
+
+[LUA-print] ended
+
+[LUA-print] cnt = 0
+
+[LUA-print] moved	-1.0000152587891	-0.99996948242188
+
+[LUA-print] moved	-2.0000152587891	-4.9999694824219
+
+[LUA-print] moved	-2.0000152587891	-14
+
+[LUA-print] moved	-5	-25.000030517578
+
+[LUA-print] moved	-6.0000152587891	-36.000030517578
+
+[LUA-print] moved	-6.0000152587891	-41.999969482422
+
+[LUA-print] swap:	1	8	1	6
+
+[LUA-print] ended
+
+[LUA-print] cnt = 0
+
+[LUA-print] moved	-1	0
+
+[LUA-print] moved	-9	2.0000305175781
+
+[LUA-print] moved	-20	8
+
+[LUA-print] moved	-29	11.999969482422
+
+[LUA-print] moved	-40	15.999969482422
+
+[LUA-print] swap:	3	9	2	10
+
+[LUA-print] ended
+
+[LUA-print] cnt = 0
+
+[LUA-print] moved	7	0
+
+[LUA-print] moved	12	0
+
+[LUA-print] moved	20	1
+
+[LUA-print] moved	27	3
+
+[LUA-print] moved	29.999984741211	4
+
+[LUA-print] moved	34.999984741211	8
+
+[LUA-print] moved	44	11
+
+[LUA-print] swap:	1	10	2	11
+
+[LUA-print] ended
+
+[LUA-print] cnt = 0
+
+[LUA-print] moved	6.0000152587891	-2.0000305175781
+
+[LUA-print] moved	18.000015258789	-18
+
+[LUA-print] moved	32.000015258789	-29
+
+[LUA-print] swap:	2	7	2	6
+
+[LUA-print] ended
+
+[LUA-print] cnt = 0
+
+[LUA-print] moved	-1	-0.99996948242188
+
+[LUA-print] moved	-36	-17.999938964844
+
+[LUA-print] swap:	3	10	3	9
+
+[LUA-print] ended
+
+[LUA-print] cnt = 0
+
+[LUA-print] moved	-1	11
+
+[LUA-print] moved	-1	30
+
+[LUA-print] moved	-3	55
+
+[LUA-print] swap:	3	7	3	9
+
+[LUA-print] ended
+
+[LUA-print] cnt = 0
+
+[LUA-print] cnt = 3
+
+[LUA-print] cnt = 3
+
+[LUA-print] moved	0	-4.0000305175781
+
+[LUA-print] moved	2	-6.9999694824219
+
+[LUA-print] moved	7	-10.999969482422
+
+[LUA-print] moved	12.999969482422	-17
+
+[LUA-print] moved	15.999969482422	-20
+
+[LUA-print] moved	32	-35
+
+[LUA-print] swap:	3	10	4	9
+
+[LUA-print] ended
+
+[LUA-print] cnt = 0
+
+[LUA-print] moved	-4.0000305175781	0
+
+[LUA-print] moved	-18	7.0000305175781
+
+[LUA-print] moved	-30	13
+
+[LUA-print] moved	-42	16.999969482422
+
+[LUA-print] swap:	4	9	3	10
+
+[LUA-print] ended
+
+[LUA-print] cnt = 0
+
