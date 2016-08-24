@@ -2,7 +2,7 @@ Quick-Cocos2dx-Community C++ support ready.
 
 ------------------------------------------------
 
-LOAD LUA FILE: C:/Users/Administrator/Desktop/pokemon/src/main.lua
+LOAD LUA FILE: C:/Users/Administrator/Desktop/Projects/VanPokemon/src/main.lua
 
 ------------------------------------------------
 
@@ -24,7 +24,7 @@ LOAD LUA FILE: C:/Users/Administrator/Desktop/pokemon/src/main.lua
 
 [LUA-print] [INFO] # device.language              = cn
 
-[LUA-print] [INFO] # device.writablePath          = C:\Users\Administrator\Desktop\pokemon\
+[LUA-print] [INFO] # device.writablePath          = C:\Users\Administrator\Desktop\Projects\VanPokemon\
 
 [LUA-print] [INFO] # device.directorySeparator    = \
 
@@ -76,139 +76,497 @@ cocos2d: padding: 0,0,0,0
 
 cocos2d: padding: 0,0,0,0
 
-[LUA-print] moved	-10	-7.0000610351563
+[LUA-print] swap:	2	10	3	9
 
-[LUA-print] moved	-21.000030517578	-11
-
-[LUA-print] moved	-36.000030517578	-18.000061035156
-
-[LUA-print] swap:	4	13	3	12
+[LUA-print] swap
 
 [LUA-print] ended
 
-[LUA-print] cnt = 0
+[LUA-print] swap:	2	10	3	9
 
-[LUA-print] moved	-1.0000152587891	-0.99996948242188
+[LUA-print] reswap:	3	9	2	10
 
-[LUA-print] moved	-2.0000152587891	-4.9999694824219
-
-[LUA-print] moved	-2.0000152587891	-14
-
-[LUA-print] moved	-5	-25.000030517578
-
-[LUA-print] moved	-6.0000152587891	-36.000030517578
-
-[LUA-print] moved	-6.0000152587891	-41.999969482422
-
-[LUA-print] swap:	1	8	1	6
+[LUA-print] aft_reswap:	2	10	3	9
 
 [LUA-print] ended
 
-[LUA-print] cnt = 0
+[LUA-print] swap:	2	2	3	3
 
-[LUA-print] moved	-1	0
+[LUA-print] swap
 
-[LUA-print] moved	-9	2.0000305175781
+[LUA-print] swap:	2	12	3	11
 
-[LUA-print] moved	-20	8
+[LUA-print] swap
 
-[LUA-print] moved	-29	11.999969482422
+[LUA-print] swap:	3	11	2	10
 
-[LUA-print] moved	-40	15.999969482422
+[LUA-print] reswap:	2	10	3	11
+
+[LUA-print] aft_reswap:	3	11	2	10
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	12	2	10
+
+[LUA-print] swap
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	10	4	9
+
+[LUA-print] reswap:	4	9	4	10
+
+[LUA-print] aft_reswap:	4	10	4	9
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	8	4	7
+
+[LUA-print] reswap:	4	7	4	8
+
+[LUA-print] aft_reswap:	4	8	4	7
+
+[LUA-print] ended
+
+[LUA-print] swap:	5	7	4	8
+
+[LUA-print] swap
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	13	4	11
+
+[LUA-print] swap
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	7	3	8
+
+[LUA-print] reswap:	3	8	3	7
+
+[LUA-print] aft_reswap:	3	7	3	8
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	6	4	7
+
+[LUA-print] reswap:	4	7	4	6
+
+[LUA-print] aft_reswap:	4	6	4	7
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	6	4	5
+
+[LUA-print] swap
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	13	3	11
+
+[LUA-print] reswap:	3	11	3	13
+
+[LUA-print] aft_reswap:	3	13	3	11
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	10	2	11
+
+[LUA-print] reswap:	2	11	2	10
+
+[LUA-print] aft_reswap:	2	10	2	11
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	10	3	11
+
+[LUA-print] swap
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	8	3	6
+
+[LUA-print] swap
+
+[LUA-print] swap:	3	7	3	6
+
+[LUA-print] swap
+
+[LUA-print] swap:	2	8	3	7
+
+[LUA-print] swap
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	8	3	9
+
+[LUA-print] swap
+
+[LUA-print] swap:	1	4	2	5
+
+[LUA-print] swap
 
 [LUA-print] swap:	3	9	2	10
 
-[LUA-print] ended
+[LUA-print] swap
 
-[LUA-print] cnt = 0
+[LUA-print] swap:	3	7	2	8
 
-[LUA-print] moved	7	0
+[LUA-print] swap
 
-[LUA-print] moved	12	0
+[LUA-print] swap:	1	8	2	9
 
-[LUA-print] moved	20	1
+[LUA-print] swap
 
-[LUA-print] moved	27	3
+[LUA-print] swap:	2	12	3	11
 
-[LUA-print] moved	29.999984741211	4
-
-[LUA-print] moved	34.999984741211	8
-
-[LUA-print] moved	44	11
-
-[LUA-print] swap:	1	10	2	11
+[LUA-print] swap
 
 [LUA-print] ended
 
-[LUA-print] cnt = 0
+[LUA-print] swap:	3	8	3	9
 
-[LUA-print] moved	6.0000152587891	-2.0000305175781
-
-[LUA-print] moved	18.000015258789	-18
-
-[LUA-print] moved	32.000015258789	-29
-
-[LUA-print] swap:	2	7	2	6
+[LUA-print] swap
 
 [LUA-print] ended
 
-[LUA-print] cnt = 0
+[LUA-print] swap:	2	10	3	9
 
-[LUA-print] moved	-1	-0.99996948242188
+[LUA-print] swap
 
-[LUA-print] moved	-36	-17.999938964844
+[LUA-print] ended
 
 [LUA-print] swap:	3	10	3	9
 
+[LUA-print] swap
+
 [LUA-print] ended
 
-[LUA-print] cnt = 0
+[LUA-print] swap:	3	9	3	7
 
-[LUA-print] moved	-1	11
+[LUA-print] reswap:	3	7	3	9
 
-[LUA-print] moved	-1	30
+[LUA-print] aft_reswap:	3	9	3	7
 
-[LUA-print] moved	-3	55
+[LUA-print] ended
+
+[LUA-print] swap:	3	5	3	3
+
+[LUA-print] reswap:	3	3	3	5
+
+[LUA-print] aft_reswap:	3	5	3	3
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	7	4	6
+
+[LUA-print] reswap:	4	6	4	7
+
+[LUA-print] aft_reswap:	4	7	4	6
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	7	3	6
+
+[LUA-print] reswap:	3	6	3	7
+
+[LUA-print] aft_reswap:	3	7	3	6
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	3	3	4
+
+[LUA-print] swap
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	3	3	4
+
+[LUA-print] reswap:	3	4	4	3
+
+[LUA-print] aft_reswap:	4	3	3	4
+
+[LUA-print] ended
+
+[LUA-print] swap:	5	7	4	6
+
+[LUA-print] reswap:	4	6	5	7
+
+[LUA-print] aft_reswap:	5	7	4	6
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	11	3	10
+
+[LUA-print] reswap:	3	10	4	11
+
+[LUA-print] aft_reswap:	4	11	3	10
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	11	3	10
+
+[LUA-print] swap
+
+[LUA-print] swap:	3	10	3	8
+
+[LUA-print] reswap:	3	8	3	10
+
+[LUA-print] aft_reswap:	3	10	3	8
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	10	4	11
+
+[LUA-print] reswap:	4	11	4	10
+
+[LUA-print] aft_reswap:	4	10	4	11
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	11	4	9
+
+[LUA-print] reswap:	4	9	4	11
+
+[LUA-print] aft_reswap:	4	11	4	9
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	4	3	5
+
+[LUA-print] swap
+
+[LUA-print] swap:	2	8	3	9
+
+[LUA-print] swap
+
+[LUA-print] swap:	3	7	3	6
+
+[LUA-print] swap
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	8	4	9
+
+[LUA-print] swap
+
+[LUA-print] swap:	3	10	3	8
+
+[LUA-print] swap
+
+[LUA-print] swap:	3	11	3	9
+
+[LUA-print] reswap:	3	9	3	11
+
+[LUA-print] aft_reswap:	3	11	3	9
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	12	3	11
+
+[LUA-print] reswap:	3	11	2	12
+
+[LUA-print] aft_reswap:	2	12	3	11
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	13	2	11
+
+[LUA-print] reswap:	2	11	2	13
+
+[LUA-print] aft_reswap:	2	13	2	11
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	12	2	10
+
+[LUA-print] reswap:	2	10	2	12
+
+[LUA-print] aft_reswap:	2	12	2	10
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	13	2	11
+
+[LUA-print] reswap:	2	11	2	13
+
+[LUA-print] aft_reswap:	2	13	2	11
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	13	2	11
+
+[LUA-print] reswap:	2	11	2	13
+
+[LUA-print] aft_reswap:	2	13	2	11
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	11	3	10
+
+[LUA-print] reswap:	3	10	4	11
+
+[LUA-print] aft_reswap:	4	11	3	10
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	5	3	6
+
+[LUA-print] swap
+
+[LUA-print] swap:	3	12	3	10
+
+[LUA-print] reswap:	3	10	3	12
+
+[LUA-print] aft_reswap:	3	12	3	10
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	8	3	9
+
+[LUA-print] reswap:	3	9	3	8
+
+[LUA-print] aft_reswap:	3	8	3	9
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	10	3	9
+
+[LUA-print] swap
+
+[LUA-print] swap:	3	8	4	9
+
+[LUA-print] swap
+
+[LUA-print] swap:	3	10	3	9
+
+[LUA-print] swap
+
+[LUA-print] swap:	3	12	3	11
+
+[LUA-print] swap
 
 [LUA-print] swap:	3	7	3	9
 
-[LUA-print] ended
-
-[LUA-print] cnt = 0
-
-[LUA-print] cnt = 3
-
-[LUA-print] cnt = 3
-
-[LUA-print] moved	0	-4.0000305175781
-
-[LUA-print] moved	2	-6.9999694824219
-
-[LUA-print] moved	7	-10.999969482422
-
-[LUA-print] moved	12.999969482422	-17
-
-[LUA-print] moved	15.999969482422	-20
-
-[LUA-print] moved	32	-35
-
-[LUA-print] swap:	3	10	4	9
+[LUA-print] swap
 
 [LUA-print] ended
 
-[LUA-print] cnt = 0
+[LUA-print] swap:	2	11	2	10
 
-[LUA-print] moved	-4.0000305175781	0
+[LUA-print] reswap:	2	10	2	11
 
-[LUA-print] moved	-18	7.0000305175781
-
-[LUA-print] moved	-30	13
-
-[LUA-print] moved	-42	16.999969482422
-
-[LUA-print] swap:	4	9	3	10
+[LUA-print] aft_reswap:	2	11	2	10
 
 [LUA-print] ended
 
-[LUA-print] cnt = 0
+[LUA-print] swap:	2	12	2	10
+
+[LUA-print] reswap:	2	10	2	12
+
+[LUA-print] aft_reswap:	2	12	2	10
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	13	3	11
+
+[LUA-print] swap
+
+[LUA-print] ended
+
+[LUA-print] swap:	1	4	2	5
+
+[LUA-print] reswap:	2	5	1	4
+
+[LUA-print] aft_reswap:	1	4	2	5
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	6	2	4
+
+[LUA-print] reswap:	2	4	2	6
+
+[LUA-print] aft_reswap:	2	6	2	4
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	7	2	6
+
+[LUA-print] reswap:	2	6	2	7
+
+[LUA-print] aft_reswap:	2	7	2	6
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	6	3	5
+
+[LUA-print] swap
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	6	3	8
+
+[LUA-print] swap
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	11	2	12
+
+[LUA-print] swap
+
+[LUA-print] ended
+
+[LUA-print] swap:	2	12	2	10
+
+[LUA-print] reswap:	2	10	2	12
+
+[LUA-print] aft_reswap:	2	12	2	10
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	12	3	11
+
+[LUA-print] reswap:	3	11	3	12
+
+[LUA-print] aft_reswap:	3	12	3	11
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	13	3	11
+
+[LUA-print] reswap:	3	11	3	13
+
+[LUA-print] aft_reswap:	3	13	3	11
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	7	4	5
+
+[LUA-print] reswap:	4	5	4	7
+
+[LUA-print] aft_reswap:	4	7	4	5
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	4	4	6
+
+[LUA-print] reswap:	4	6	4	4
+
+[LUA-print] aft_reswap:	4	4	4	6
+
+[LUA-print] ended
+
+[LUA-print] swap:	3	4	3	3
+
+[LUA-print] reswap:	3	3	3	4
+
+[LUA-print] aft_reswap:	3	4	3	3
+
+[LUA-print] ended
+
+[LUA-print] swap:	4	3	4	4
+
+[LUA-print] swap
+
+[LUA-print] ended
 

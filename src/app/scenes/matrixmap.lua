@@ -5,7 +5,7 @@ import(".utilfunctions")
 local MatrixMap = class("MatrixMap")
 
 function MatrixMap:ctor()
-	self.tempMatrix = {}  -- 用于初始化矩矩阵的预判
+	self.tempMatrix = {}  -- 用于初始化矩阵的预判
 	self.availPos = {}  -- 可以放精灵的位置
 	self.startB  = {31, 16,  2,  7,  3,  8,  4, 19, 35} -- 每一列最低点精灵位置
 	self.startLB = {62, 46, 31, 26, 16, 12,  2,  3, 4}  -- 每一左斜线最低点精灵位置
