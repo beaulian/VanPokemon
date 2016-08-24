@@ -15,27 +15,27 @@ end)
 
 function Pokemon:ctor()
 end
+-- 当前函数无用
+-- function Pokemon:setActive(active)
+--     self.isActive = active
 
-function Pokemon:setActive(active)
-    self.isActive = active
+--     local frame
+--     if (active) then
+--         frame = display.newSpriteFrame("fruit"  .. self.pokemonIndex .. '_2.png')
+--     else
+--         frame = display.newSpriteFrame("fruit"  .. self.pokemonIndex .. '_1.png')
+--     end
 
-    local frame
-    if (active) then
-        frame = display.newSpriteFrame("fruit"  .. self.pokemonIndex .. '_2.png')
-    else
-        frame = display.newSpriteFrame("fruit"  .. self.pokemonIndex .. '_1.png')
-    end
+--     self:setSpriteFrame(frame)
 
-    self:setSpriteFrame(frame)
-
-    if (active) then
-        self:stopAllActions()
-        local scaleTo1 = cc.ScaleTo:create(0.1, 1.1)
-        local scaleTo2 = cc.ScaleTo:create(0.05, 1.0)
-        self:runAction(cc.Sequence:create(scaleTo1, scaleTo2))
-    end
-end
-
+--     if (active) then
+--         self:stopAllActions()
+--         local scaleTo1 = cc.ScaleTo:create(0.1, 1.1)
+--         local scaleTo2 = cc.ScaleTo:create(0.05, 1.0)
+--         self:runAction(cc.Sequence:create(scaleTo1, scaleTo2))
+--     end
+-- end
+-- 获得图片宽度
 function Pokemon.getWidth()
     g_fruitWidth = 0
     if (0 == g_fruitWidth) then

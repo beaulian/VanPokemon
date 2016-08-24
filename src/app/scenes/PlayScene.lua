@@ -9,7 +9,7 @@ local PlayScene = class("PlayScene", function()
 	return display.newScene("PlayScene")
 end)
 
--- 检测传进去的Pokemon是否合法并且颜色相同
+-- 返回true表示可以消除
 function PlayScene:isValidAndSame(...)
 	local vecs = {...}
 	for i = 2, #vecs do
@@ -22,7 +22,7 @@ function PlayScene:isValidAndSame(...)
 	-- body
 end
 
--- 用户初始化时检测模拟的地图是否合法
+-- 返回true表示可以消除（不合法）
 function PlayScene:isValidAndSameForTemp(...)
 	local vecs = {...}
 	if map.tempMatrix[vecs[1]] == nil then return false end
@@ -35,7 +35,6 @@ function PlayScene:isValidAndSameForTemp(...)
 	return true
 	-- body
 end
-
 -- 判断是否有可消除的情况
 function PlayScene:checkAvailableVan(id, isinitial)
 	local isinitial = isinitial
@@ -58,12 +57,12 @@ function PlayScene:checkAvailableVan(id, isinitial)
 			return map.tempMatrix[id_1] and map.tempMatrix[id_2] and 
 			       map.tempMatrix[id_3] and map.tempMatrix[id_4] and
 			       map.tempMatrix[id_5] and map.tempMatrix[id_6] and 
-			       self:isValidAndSameForTemp(id, id_1, id_2, id_3, id_4, id_5, id_6)
+			       self:isValidAndSameForTemp(id_1, id_2, id_3, id_4, id_5, id_6)
 		else
 			return map.availPos[id_1] and map.availPos[id_2] and 
 			       map.availPos[id_3] and map.availPos[id_4] and
 			       map.availPos[id_5] and map.availPos[id_6] and
-			       self:isValidAndSame(id, id_1, id_2)
+			       self:isValidAndSame(id_1, id_2, id_3, id_4, id_5, id_6)
 		end
 	end
 
@@ -285,10 +284,13 @@ function PlayScene:initMartix()
 	self.actives = {}
 	-- 初始化水果，一开始不能直接消除
 	for id, _ in pairs(map.availPos) do
+
+		-- 先尝试随机生成一个Pokemon
+		local value = math.round(math.random() * 1000) % 8 + 1
 		repeat
-			-- 先尝试随机生成一个Pokemon
-			local value = math.round(math.random() * 1000) % 8 + 1
 			map.tempMatrix[id] = value
+			value = value + 1
+			if value > 8 then value = value - 8 end
 		-- 判断是否这个Pokemeon对整个地图合法
 		until not self:scanItem(map.neighbor.leftBottom[id], 1) 
 			  and not self:scanItem(map.neighbor.bottom[id], 1) 
@@ -388,8 +390,6 @@ function PlayScene:createAndDropPokemon(x, y, pokemonIndex)
 
 						print('aft_reswap:',newPokemon.x,newPokemon.y,self.swapx,self.swapy)
 						self:reswapAction(newPokemon.x,newPokemon.y,self.swapx,self.swapy)
-					
-						self.actives = {} 
 					end
 					newPokemon.begx = -1
 					newPokemon.begy = -1
@@ -422,7 +422,7 @@ function PlayScene:removeActivedPokemons()
 				:pos(temp:getPosition())
 				:addTo(self)
 			circleSprite:setScale(0)
-			circleSprite:runAction(cc.Sequence:create(cc.ScaleTo:create(time, 1.0),
+			circleSprite:runAction(cc.Sequence:create(cc.ScaleTo:create(time, 0.2),
 					cc.CallFunc:create(function() circleSprite:removeFromParent() end)))
 			
 			-- 爆炸碎片
@@ -441,8 +441,6 @@ function PlayScene:removeActivedPokemons()
 		end
 	end
 
-	-- 清空高亮数组
-	self.actives = {}
 
 	-- 更新当前得分
 	self.curSorce = self.curSorce + self.activeScore
@@ -574,23 +572,23 @@ function PlayScene:positionOfPokemon(x, y)
     if y % 2 == 0 then px = px + 1.5 * dx end
     return cc.p(px, py)
 end
-
-function PlayScene:activeNeighbor(Pokemon)
-	-- 高亮Pokemon
-	-- 6连通域
-	self.matrix[Pokemon.id]:setActive(true)
-	self.actives[Pokemon.id] = true
-	for i = 1, 6 do
-		local nid = Pokemon.id + map:getDirectArray(Pokemon)
-		if vis[nid] and Pokemon.pokemonIndex == self.matrix[nid].pokemonIndex then
-			local neighbor = self.matrix[nid]
-			if neighbor.isActive == false then
-				self.actives[neighbor.id] = true
-				self:activeNeighbor(neighbor)
-			end
-		end
-	end
-end
+-- 初始测试用代码
+-- function PlayScene:activeNeighbor(Pokemon)
+-- 	-- 高亮Pokemon
+-- 	-- 6连通域
+-- 	self.matrix[Pokemon.id]:setActive(true)
+-- 	self.actives[Pokemon.id] = true
+-- 	for i = 1, 6 do
+-- 		local nid = Pokemon.id + map:getDirectArray(Pokemon)
+-- 		if vis[nid] and Pokemon.pokemonIndex == self.matrix[nid].pokemonIndex then
+-- 			local neighbor = self.matrix[nid]
+-- 			if neighbor.isActive == false then
+-- 				self.actives[neighbor.id] = true
+-- 				self:activeNeighbor(neighbor)
+-- 			end
+-- 		end
+-- 	end
+-- end
 
 function PlayScene:itemSwap(x1,y1,x2,y2)
 	self.swapx,self.swapy = x1,y1
@@ -601,7 +599,7 @@ function PlayScene:itemSwap(x1,y1,x2,y2)
   
 end
 
---v1.2
+-- 交换成功的动画效果，并行
 function PlayScene:swapAction(x1,y1,x2,y2)
 	local speed = 0.15
     self.matrix[getID(x1,y1)]:stopAllActions()
@@ -611,7 +609,7 @@ function PlayScene:swapAction(x1,y1,x2,y2)
     return 
 end
 
---v1.2
+-- 交换失败的动画效果，串行
 function PlayScene:reswapAction(x1,y1,x2,y2)   
 	local speed = 0.15
     self.matrix[getID(x1,y1)]:stopAllActions()
@@ -626,18 +624,18 @@ function PlayScene:reswapAction(x1,y1,x2,y2)
     			cc.MoveTo:create(speed, self:positionOfPokemon(self.matrix[getID(x2,y2)].x,self.matrix[getID(x2,y2)].y))					)
 	self.matrix[getID(x2,y2)]:runAction(seqb)
 end
-
-function PlayScene:inactive()
-    for _ in pairs(self.actives) do
+-- 初始测试用代码
+-- function PlayScene:inactive()
+--     for _ in pairs(self.actives) do
     	
-        if self.matrix[_] then
-            self.matrix[_]:setActive(false)
-        end
-    end
-	self.actives = {}
-end
-
-function PlayScene:showActivesScore()
+--         if self.matrix[_] then
+--             self.matrix[_]:setActive(false)
+--         end
+--     end
+-- 	self.actives = {}
+-- end
+-- 初始测试用代码
+-- function PlayScene:showActivesScore()
 	-- 只有一个高亮，取消高亮并返回
 	-- local cnt = 0
 	-- for i, k in pairs(self.actives) do
@@ -651,9 +649,9 @@ function PlayScene:showActivesScore()
 	-- end
 	-- print("cnt = " .. cnt)
 	-- 水果分数依次为5、15、25、35... ，求它们的和
-	self.activeScore = (self.scoreStart * 2 + self.scoreStep * (cnt - 1)) * cnt / 2
-	self.activeScoreLabel:setString(string.format("%d 连消，得分 %d", cnt, self.activeScore))
-end
+-- 	self.activeScore = (self.scoreStart * 2 + self.scoreStep * (cnt - 1)) * cnt / 2
+-- 	self.activeScoreLabel:setString(string.format("%d 连消，得分 %d", cnt, self.activeScore))
+-- end
 
 function PlayScene:onEnter()
 end
