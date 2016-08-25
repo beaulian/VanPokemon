@@ -67,7 +67,9 @@ function PlayScene:checkAvailableVan(id, isinitial)
 	end
 
 	return {
+		-- 斜率为负
 		checkLS = check(map.neighbor.leftTop[id], map.neighbor.rightBottom[id]),
+		-- 斜率为正
 		checkRS = check(map.neighbor.rightTop[id], map.neighbor.leftBottom[id]),
 		checkCol = check(map.neighbor.top[id], map.neighbor.bottom[id]),
 		checkCircle = check_circle(map.neighbor.top[id], map.neighbor.rightTop[id],
@@ -76,6 +78,85 @@ function PlayScene:checkAvailableVan(id, isinitial)
 	}
 end
 
+
+-- 检测以id开始的正斜线是否可以消除
+function PlayScene:checkPosLine(id)
+	local cnt, max = 0, 0
+	local startid, endid = id, id
+	while map.availPos[endid] do
+		if self.matrix[endid].pokemonIndex == self.matrix[startid].pokemonIndex then
+			cnt = cnt + 1
+		else 
+			cnt, startid = 1, endid
+		end
+		endid = map.neighbor.rightTop[endid]
+		max = math.max(max, cnt)
+		--todo
+	end
+	return max > 3
+	-- body
+end
+-- 检测以id开始的负斜线是否可以消除
+function PlayScene:checkNegLine(id)
+	local cnt, max = 0, 0
+	local startid, endid = id, id
+	while map.availPos[endid] do
+		if self.matrix[endid].pokemonIndex == self.matrix[startid].pokemonIndex then
+			cnt = cnt + 1
+		else 
+			cnt, startid = 1, endid
+		end
+		endid = map.neighbor.leftTop[endid]
+		max = math.max(max, cnt)
+		--todo
+	end
+	return max > 3
+	-- body
+end
+-- 检测以id开始的竖线是否可以消除
+function PlayScene:checkColLine(id)
+	local cnt, max = 0, 0
+	local startid, endid = id, id
+	while map.availPos[endid] do
+		if self.matrix[endid].pokemonIndex == self.matrix[startid].pokemonIndex then
+			cnt = cnt + 1
+		else 
+			cnt, startid = 1, endid
+		end
+		endid = map.neighbor.top[endid]
+		max = math.max(max, cnt)
+		--todo
+	end
+	return max > 3
+	-- body
+end
+-- 添加以id开始的正斜线到消除列表
+function PlayScene:addRemovePosLine(id)
+	repeat
+		self.actives[id] = true
+		id = map.neighbor.rightTop[id]
+		--todo
+	until not map.availPos[id]
+	-- body
+end
+-- 添加以id开始的负斜线到消除列表
+function PlayScene:addRemoveNegLine(id)
+	repeat
+		self.actives[id] = true
+		id = map.neighbor.leftTop[id]
+		--todo
+	until not map.availPos[id]
+	-- body
+end
+-- 添加以id开始的竖线到消除列表
+function PlayScene:addRemoveColLine(id)
+	repeat
+		self.actives[id] = true
+		id = map.neighbor.top[id]
+		--todo
+	until not map.availPos[id]
+	-- body
+end
 -- 扫描该点是否可以消除
 function PlayScene:scanItem(id, isinitial)
 	if(map.availPos[id] == nil) then return false end
@@ -83,7 +164,7 @@ function PlayScene:scanItem(id, isinitial)
 	-- 初始化判断
 	local check = self:checkAvailableVan(id, isinitial)
 
-	-- 判断左斜线
+	-- 判断斜率为负的斜线
 	if check.checkLS then 
 		if not isinitial then 
 			self.actives[id] = true
@@ -92,7 +173,7 @@ function PlayScene:scanItem(id, isinitial)
 		end
 		f = true
 	end
-	-- 判断右斜线
+	-- 判断斜率为正的斜线
 	if check.checkRS then 
 		if not isinitial then 
 			self.actives[id] = true 
@@ -111,11 +192,11 @@ function PlayScene:scanItem(id, isinitial)
 		f = true
 	end
 	-- 判断一个圆环
-	if check.checkCircle then 
-		if not isinitial then 
+	if check.checkCircle then
+		if not isinitial then
 			self.actives[map.neighbor.top[id]] = true
-			self.actives[map.neighbor.rightTop[id]] = true 
-			self.actives[map.neighbor.rightBottom[id]] = true 
+			self.actives[map.neighbor.rightTop[id]] = true
+			self.actives[map.neighbor.rightBottom[id]] = true
 			self.actives[map.neighbor.bottom[id]] = true
 			self.actives[map.neighbor.leftBottom[id]] = true
 			self.actives[map.neighbor.leftTop[id]] = true
@@ -132,6 +213,36 @@ function PlayScene:scanAll()
 	for i, _ in pairs(map.availPos) do
 		if self:scanItem(i) then
 			f = true 
+		end
+	end
+	-- 超过4个消一条直线
+	if f then
+		local removePos, removeNeg, removeCol = {}, {}, {}
+		-- 检测
+		-- 斜率为正的斜线
+		for _, id in pairs(map.startLB) do
+			if self:checkPosLine(id) then removePos[id] = true end
+		end
+		-- 斜率为负的斜线
+		for _, id in pairs(map.startRB) do
+			if self:checkNegLine(id) then removeNeg[id] = true end
+		end
+		-- 竖线
+		for _, id in pairs(map.startB) do
+			if self:checkColLine(id) then removeCol[id] = true end
+		end
+		-- 添加消除列表
+		-- 斜率为正的斜线
+		for id, _ in pairs(removePos) do
+			self:addRemovePosLine(id)
+		end
+		-- 斜率为负的斜线
+		for id, _ in pairs(removeNeg) do
+			self:addRemoveNegLine(id)
+		end
+		-- 竖线
+		for id, _ in pairs(removeCol) do
+			self:addRemoveColLine(id)
 		end
 	end
 	return f
@@ -286,11 +397,11 @@ function PlayScene:initMartix()
 	for id, _ in pairs(map.availPos) do
 
 		-- 先尝试随机生成一个Pokemon
-		local value = math.round(math.random() * 1000) % 8 + 1
+		local value = math.round(math.random() * 1000) % 5 + 1
 		repeat
 			map.tempMatrix[id] = value
 			value = value + 1
-			if value > 8 then value = value - 8 end
+			if value > 5 then value = value - 5 end
 		-- 判断是否这个Pokemeon对整个地图合法
 		until not self:scanItem(map.neighbor.leftBottom[id], 1) 
 			  and not self:scanItem(map.neighbor.bottom[id], 1) 
@@ -302,7 +413,7 @@ function PlayScene:initMartix()
 		self:createAndDropPokemon(Point.x, Point.y, map.tempMatrix[id])
 	end
 	-- 启用帧事件
-	-- self:scheduleUpdate()
+	self:scheduleUpdate()
 end
 
 function PlayScene:createAndDropPokemon(x, y, pokemonIndex)
@@ -312,8 +423,6 @@ function PlayScene:createAndDropPokemon(x, y, pokemonIndex)
     local startPosition = cc.p(endPosition.x, endPosition.y + display.height / 2)
     newPokemon:setPosition(startPosition)
     self.matrix[getID(x, y)] = newPokemon
-
-    self:scheduleUpdate()
     self:addChild(newPokemon)
 
 	local speed = startPosition.y / (2 * display.height) + 0.5

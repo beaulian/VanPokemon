@@ -1,6 +1,6 @@
 
 local Pokemon = class("Pokemon", function(x, y, id, pokemonIndex)
-	pokemonIndex = pokemonIndex or math.round(math.random() * 1000) % 8 + 1
+	pokemonIndex = pokemonIndex or math.round(math.random() * 1000) % POKEMONNUMBER + 1
 
 	local sprite = display.newSprite("#fruit"  .. pokemonIndex .. '_1.png')
 	sprite.pokemonIndex = pokemonIndex or 1

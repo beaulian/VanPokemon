@@ -5,3 +5,5 @@ SRT = math.sqrt(3)
 
 -- Pi
 PI = math.acos(-1)
+-- 水果数量常量
+POKEMONNUMBER = 8
